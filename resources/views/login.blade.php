@@ -44,7 +44,7 @@
         0px 0px 2px #5f5f5f,
         0px 0px 0px 5px #ecf0f3,
         8px 8px 15px #a7aaaf,
-        -8px -8px 15px #ffffff;]
+        -8px -8px 15px #ffffff;
 		overflow: hidden;
     }
     .heading {
@@ -151,6 +151,7 @@
 	<br>
     <button class="sign-btn">Login</button>
     <div class="link">
+      <a href="register">register</a>
       <a href="#">Forgot password?</a>
     </div>
   </div>
