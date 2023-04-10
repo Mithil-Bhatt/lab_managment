@@ -35,3 +35,5 @@ Route::post('/register', [BasicController::class,'adminstore']);
 Route::post('/login', [BasicController::class,'login']);
 
 Route::get('/display', [BasicController::class,'display']);
+Route::get('/pc', [BasicController::class,'pc']);
+Route::get('/pc/{id}/display', [FirstController::class,'pcfind']);

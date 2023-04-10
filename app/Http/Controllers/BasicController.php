@@ -7,7 +7,6 @@ use App\Models\computer;
 use App\Models\software;
 use App\Models\hardware;
 use Illuminate\Support\Facades\Input;
-
 use Auth;
 use Illuminate\Http\Request;
 
@@ -58,6 +57,25 @@ class BasicController extends Controller
         {
             
             $data=Hardware::all();
-            return view('display',compact('data'));
+            $data1=Software::all();
+           // $data2=Computer::where('id',1)->first();
+            return view('display',compact('data','data1'));
+
         } 
-}
+
+    
+        
+            
+            public function pc(){
+                $pcno= Computer::all();
+                return view('pc',compact('pcno'));
+             }
+
+             public function pcfind($id){
+                $pcno = Computer::find($id);
+                return view('display',compact('pcno'));
+             }
+         
+
+} 
+
