@@ -149,7 +149,7 @@
 <input type="checkbox" onclick="myFunction()">Show Password
     </div>
 	<br>
-    <button class="sign-btn">Login</button>
+    <a><button class="sign-btn">Login</button>
     <div class="link">
       <a href="register">register</a>
       <a href="#">Forgot password?</a>

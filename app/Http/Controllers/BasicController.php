@@ -44,7 +44,7 @@ class BasicController extends Controller
         $pass1 = admin::where('password','=',$password)->first();
         if($user && $pass1)
         {
-            return view('welcome');
+            return view('lab');
         }
         else{
             dd("wrong");
@@ -56,10 +56,9 @@ class BasicController extends Controller
         public function display()
         {
             
-            $data=Hardware::all();
-            $data1=Software::all();
+            
            // $data2=Computer::where('id',1)->first();
-            return view('display',compact('data','data1'));
+          //  return view('display',compact('data','data1'));
 
         } 
 
@@ -67,14 +66,20 @@ class BasicController extends Controller
         
             
             public function pc(){
-                $pcno= Computer::all();
-                return view('pc',compact('pcno'));
+              
+                $pc=Computer::all();
+                return view('pc',compact('pc'));
              }
 
              public function pcfind($id){
-                $pcno = Computer::find($id);
-                return view('display',compact('pcno'));
+                $pc = Computer::find($id);
+                $data=Hardware::all();
+                $data1=Software::all();
+                return view('display',compact('pc','data','data1'));
              }
+
+            
+         
          
 
 } 

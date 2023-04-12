@@ -1,13 +1,18 @@
 
-@foreach( $pcno as $row )
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('PC selection') }}
+        </h2>
+    </x-slot>
+
+@foreach( $pc as $row )
 			                                    
          {{ $row->id }} {{ $row->Computer_no }}
-         <form action="pc" method="POst">
+
          
    
-<a href="/pc/{{$pcno->id}}/display">Update</a>
-@csrf
-@method('PUT')
-<input type="submit" value="Delete">
-</form>
-  @endforeach   
+         <a href="/pc/{{$row->id}}/display">Select</a>
+@endforeach   
+
+  </x-app-layout>

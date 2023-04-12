@@ -1,11 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Models\admin;
-use App\Models\lab;
-use App\Models\computer;
-use App\Models\software;
-use App\Models\Hardware;
 use App\Http\Controllers\BasicController;
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +14,33 @@ use App\Http\Controllers\BasicController;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/register', [BasicController::class,'adminstore']);
-Route::post('/login', [BasicController::class,'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('/display', [BasicController::class,'display']);
+    Route::get('/display', [BasicController::class,'display'])->name('');
 Route::get('/pc', [BasicController::class,'pc']);
-Route::get('/pc/{id}/display', [FirstController::class,'pcfind']);
+Route::get('/pc/{id}/display', [BasicController::class,'pcfind']);
+
+Route::get('/lab', function () {
+    return view('lab');
+});
+
+
+});
+
+/*Route::get('/display', [BasicController::class,'display']);
+Route::get('/pc', [BasicController::class,'pc']);
+Route::get('/pc/{id}/display', [BasicController::class,'pcfind']);*/
+
+require __DIR__.'/auth.php';
