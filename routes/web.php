@@ -37,6 +37,9 @@ Route::get('/lab', function () {
 });
 
 
+Route::get('/data',[BasicController::class,'admincrud']);
+Route::post('/data',[BasicController::class,'entry']);
+
 });
 
 /*Route::get('/display', [BasicController::class,'display']);
