@@ -30,7 +30,7 @@
         @enderror
         <br>
         <input type="password" name="password" placeholder="password">
-        @error('name')  
+        @error('name')
         {{ $message }}
         @enderror
         <br>
@@ -38,6 +38,20 @@
     </form>
     <br>
 
+
+    @foreach($userdata as $user)
+    {{ $user->username}} {{ $user->email}}
+
+    <a href="/data/{{$user->id}}/edit">Edit</a><br>
+    
+    <form action="data/{{$user->id}}" method="POST">
+        @method('DELETE')
+        @csrf
+        <input type="submit" value="delete">
+     </form>
+     <br>
+
+    @endforeach
 </body>
 
 </html>

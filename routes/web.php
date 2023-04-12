@@ -38,7 +38,10 @@ Route::get('/lab', function () {
 
 
 Route::get('/data',[BasicController::class,'admincrud']);
-Route::post('/data',[BasicController::class,'entry']);
+Route::post('/data',[BasicController::class,'dataentry']);
+Route::get('/data/{id}/edit',[BasicController::class,'dataedits']);
+Route::delete('/data/{id}',[BasicController::class,'datadelete']);
+Route::put('/data/{id}',[BasicController::class,'dataedit']);
 
 });
 

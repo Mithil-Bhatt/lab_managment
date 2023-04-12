@@ -87,11 +87,11 @@ class BasicController extends Controller
     public function admincrud()
     {
 
-        //   $studentdata = users::all();
-        return view('admincrud');
+         $userdata = user::all();
+        return view('admincrud', compact('userdata'));
     }
 
-    public function entry(Request $request)
+    public function dataentry(Request $request)
     {
         user::create([
             'name' => $request['name'],
@@ -101,4 +101,42 @@ class BasicController extends Controller
         ]);
         return redirect('data');
     }
+
+    
+   public function datadelete($id)
+   {
+      user::where('id', $id)->delete();
+      return redirect('data');
+   }
+
+   
+   public function dataedits($id)
+   {
+      $user = user::find($id);
+      // dd($student);
+
+      return view('userEdit', compact('user'));
+   }
+
+   public function editPage($id)
+   {
+    $student = user::find($id);
+    // dd($student);
+    return view('useredit', compact('student'));
+    }
+
+    public function dataedit( Request $request,$id)
+    {
+       
+       user::where('id',$id)->update([
+          'username' => $request['username'],
+          'name' => $request['name'],
+          'email' => $request['email'],
+          'password' => $request['password']
+       ]);
+ 
+       return redirect('data');
+    }
+
 }
+
