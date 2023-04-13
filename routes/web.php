@@ -28,20 +28,28 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/display', [BasicController::class,'display'])->name('');
-Route::get('/pc', [BasicController::class,'pc']);
-Route::get('/pc/{id}/display', [BasicController::class,'pcfind']);
+    Route::get('/display', [BasicController::class, 'display'])->name('');
+    Route::get('/pc', [BasicController::class, 'pc']);
+    Route::get('/pc/{id}/display', [BasicController::class, 'pcfind']);
 
-Route::get('/lab', function () {
-    return view('lab');
+    Route::get('/lab', function () {
+        return view('lab');
+    });
+
+    //admin
+
 });
 
+Route::middleware('auth','isadmin')->group(function() {
 
-Route::get('/data',[BasicController::class,'admincrud']);
-Route::post('/data',[BasicController::class,'dataentry']);
-Route::get('/data/{id}/edit',[BasicController::class,'dataedits']);
-Route::delete('/data/{id}',[BasicController::class,'datadelete']);
-Route::put('/data/{id}',[BasicController::class,'dataedit']);
+    //admin
+
+    Route::get('/data', [BasicController::class, 'admincrud']);
+    Route::post('/data', [BasicController::class, 'dataentry']);
+    Route::get('/data/{id}/edit', [BasicController::class, 'dataedits']);
+    Route::delete('/data/{id}', [BasicController::class, 'datadelete']);
+    Route::put('/data/{id}', [BasicController::class, 'dataedit']);
+    
 
 });
 
@@ -49,4 +57,4 @@ Route::put('/data/{id}',[BasicController::class,'dataedit']);
 Route::get('/pc', [BasicController::class,'pc']);
 Route::get('/pc/{id}/display', [BasicController::class,'pcfind']);*/
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

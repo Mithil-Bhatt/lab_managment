@@ -1,7 +1,7 @@
 
 <style>
 
-@
+
 .ag-format-container {
   width: 1142px;
   margin: 0 auto;
