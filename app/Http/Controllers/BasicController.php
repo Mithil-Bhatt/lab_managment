@@ -65,6 +65,13 @@ class BasicController extends Controller
     }
 
 
+    
+    public function lab()
+    {
+
+         $labdata = lab::all();
+        return view('lab', compact('labdata'));
+    }
 
 
     public function pc()

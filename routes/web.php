@@ -32,11 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pc', [BasicController::class, 'pc']);
     Route::get('/pc/{id}/display', [BasicController::class, 'pcfind']);
 
-    Route::get('/lab', function () {
-        return view('lab');
-    });
-
-    //admin
+    Route::get('/lab', [BasicController::class, 'lab']);
 
 });
 
