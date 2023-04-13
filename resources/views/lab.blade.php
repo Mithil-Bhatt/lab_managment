@@ -1,15 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
- 
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+<style>
 
 @
 .ag-format-container {
@@ -479,31 +469,23 @@ border-color:#404040;
 margin-left:25px;
 }
 </style>
-</head>
-<body>
-
-<div class="nav">
-
-  <input type="checkbox" id="nav-check">
-  <div class="nav-header">
-    <div class="nav-title">
-      LJ UNIVERSITY LAB MANAGEMENT
-    </div>
-  </div>
-  <div class="nav-btn">
-    <label for="nav-check">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-  </div>
 
 
-</div>
 
 
- <br>
- <div>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Lab Management System') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                   
+                <div>
     <h1 class="header">SELECT&nbsp;&nbsp;LAB</h1>
    </div>
   <div class="search">
@@ -516,69 +498,26 @@ margin-left:25px;
 <div class="ag-format-container">
   <div class="ag-courses_box">
  
+
+  @foreach( $lab as $row )
     <div class="ag-courses_item">
       <div href="#" class="ag-courses-item_link">
         <div class="ag-courses-item_bg"></div>
 
         <div class="ag-courses-item_title">
-         LAB-110<br><br>
-<a href="/pc"><button class="button-28" role="button">Enter</button></a>
+
+     
+			                                    
+        <p>{{$row->lab_id}} {{ $row->lab_no }}</p>
+        
+        <br><br>
+<a href="/lab/{{$row->lab_id}}/pc"><button class="button-28" role="button">Enter</button></a>
         </div>
       </div>
     </div>
+    @endforeach  
  
-    <div class="ag-courses_item">
-      <div href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         LAB-110<br><br>
-<button class="button-28" role="button">Enter</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="ag-courses_item">
-      <div href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         LAB-110<br><br>
-<button class="button-28" role="button">Enter</button>
-        </div>
-      </div>
-    </div>
-   
-  <div class="ag-courses_item">
-      <div href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         LAB-110<br><br>
-<button class="button-28" role="button">Enter</button>
-        </div>
-      </div>
-    </div>
-  <div class="ag-courses_item">
-      <div href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         LAB-110<br><br>
-<button class="button-28" role="button">Enter</button>
-        </div>
-      </div>
-    </div>
-  <div class="ag-courses_item">
-      <div href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         LAB-110<br><br>
-<button class="button-28" role="button">Enter</button>
-        </div>
-      </div>
-    </div>
+    
 
     </div>
 
@@ -613,3 +552,11 @@ margin-left:25px;
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
  </script>
 
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

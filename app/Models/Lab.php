@@ -9,6 +9,6 @@ class Lab extends Model
 {
     use HasFactory;
     protected $table ='lab';
+    protected $primaryKey='lab_id';
     protected $fillable = ['lab_no'];
-
 }

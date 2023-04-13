@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\admin;
-use App\Models\lab;
-use App\Models\computer;
+use App\Models\Lab;
+use App\Models\Computer;
 use App\Models\software;
 use App\Models\hardware;
 use Illuminate\Support\Facades\Input;
@@ -62,21 +62,33 @@ class BasicController extends Controller
 
         } 
 
+
+        public function lab()
+        {
+             $lab=Lab::all();
+             return view('lab',compact('lab'));
+
+        }
+
     
         
             
-            public function pc(){
+            public function pc($lab_id){
               
+                $lab=Lab::find($lab_id);
                 $pc=Computer::all();
-                return view('pc',compact('pc'));
+                return view('pc',compact('lab','pc'));
              }
 
              public function pcfind($id){
                 $pc = Computer::find($id);
+               // $lab=lab::find($id);
                 $data=Hardware::all();
                 $data1=Software::all();
-                return view('display',compact('pc','data','data1'));
+                return view('display',compact('pc','data','data1','lab'));
              }
+
+            
 
             
          

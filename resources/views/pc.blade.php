@@ -6,9 +6,16 @@
         </h2>
     </x-slot>
 
+
+    <form action="/lab/{{$lab->lab_id}}" method="POST">
+    @csrf
+    @method('PUT')
+	<h1>{{ $pc->lab_no}}</h1>
+</form>
+
 @foreach( $pc as $row )
 			                                    
-         {{ $row->id }} {{ $row->Computer_no }}
+         {{ $row->id }} {{ $row->computer_no }}
 
          
    

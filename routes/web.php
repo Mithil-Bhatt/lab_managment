@@ -29,12 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/display', [BasicController::class,'display'])->name('');
-Route::get('/pc', [BasicController::class,'pc']);
+//Route::get('/pc', [BasicController::class,'pc']);
+Route::get('/lab', [BasicController::class,'lab']);
 Route::get('/pc/{id}/display', [BasicController::class,'pcfind']);
+Route::get('/lab/{lab_id}/pc', [BasicController::class,'pc']);
 
-Route::get('/lab', function () {
-    return view('lab');
-});
+
 
 
 });

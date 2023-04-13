@@ -9,5 +9,6 @@ class Computer extends Model
 {
     use HasFactory;
     protected $table ='computer';
-    protected $fillable = ['Computer_no'];
+    protected $fillable = ['computer_no'];
+    
 }
