@@ -93,7 +93,9 @@ class BasicController extends Controller
     {
        
        // dd($);
+  
        $pc = DB::table('computer')->where('lab_id', $id)->get();
+
         
        return view('pc', compact('pc'));
     }

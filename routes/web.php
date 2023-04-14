@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\Crudcontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,19 +36,24 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/lab', [BasicController::class, 'lab']);
     Route::get('/lab/{id}/pc', [BasicController::class, 'pcselect']);
-
 });
 
-Route::middleware('auth','isadmin')->group(function() {
+Route::middleware('auth', 'isadmin')->group(function () {
 
     //admin
 
-    Route::get('/data', [BasicController::class, 'admincrud']);
-    Route::post('/data', [BasicController::class, 'dataentry']);
-    Route::get('/data/{id}/edit', [BasicController::class, 'dataedits']);
-    Route::delete('/data/{id}', [BasicController::class, 'datadelete']);
-    Route::put('/data/{id}', [BasicController::class, 'dataedit']);
-    
+    //data
+    Route::get('/data', [Crudcontroller::class, 'admincrud']);
+    Route::post('/data', [Crudcontroller::class, 'dataentry']);
+    Route::get('/data/{id}/edit', [Crudcontroller::class, 'dataedits']);
+    Route::delete('/data/{id}', [Crudcontroller::class, 'datadelete']);
+    Route::put('/data/{id}', [Crudcontroller::class, 'dataedit']);
+
+    //lab
+    Route::get('/labdata', [Crudcontroller::class, 'labcrud']);
+    Route::post('/labdata', [Crudcontroller::class, 'labentry']);
+    Route::delete('/labdata/{ḷab_id}', [Crudcontroller::class, 'labdelete']);
+    Route::get('/labdata/{lab_id}/edit', [Crudcontroller::class, 'labedits']);
 
 });
 

@@ -516,15 +516,15 @@
 
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('PC selection') }}
-        </h2>
-    </x-slot>
+  <x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+      {{ __('PC selection') }}  
+    </h2>
+  </x-slot>
 
 
 
-    <div class="py-12">
+  <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -543,7 +543,7 @@
 
             <div class="ag-courses_box">
 
-            @foreach( $pc as $row )
+              @foreach( $pc as $row )
 
               <div class="ag-courses_item">
                 <div href="#" class="ag-courses-item_link">
@@ -552,8 +552,8 @@
                   <div class="ag-courses-item_title">
 
 
-                  {{ $row->computer_id }} 
-{{ $row->Computer_no }}
+                    {{ $row->computer_id }}
+                    {{ $row->Computer_no }}
 
                     <br><br>
                     <a href="/pc"><button class="button-28" role="button">Enter</button></a>
@@ -562,7 +562,7 @@
               </div>
               @endforeach
             </div>
-                                                                      
+
           </div>
         </div>
 
@@ -604,4 +604,4 @@
   </div>
 
 
-  </x-app-layout>
+</x-app-layout>
