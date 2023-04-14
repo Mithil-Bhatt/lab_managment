@@ -562,7 +562,7 @@
           <div class="ag-courses-item_bg"></div>
           <div class="ag-courses-item_title">
             {{ $lab->lab_no}}<br><br>
-            <a href="/pc"><button class="button-28" role="button">Enter</button></a>
+            <a href="/lab/{{$lab->lab_id}}/pc"><button class="button-28" role="button">Enter</button></a>
           </div>
         </div>
       </div>

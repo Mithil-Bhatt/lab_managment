@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class BasicController extends Controller
@@ -88,7 +89,14 @@ class BasicController extends Controller
         $data1 = Software::all();
         return view('display', compact('pc', 'data', 'data1'));
     }
-
+    public function pcselect($id)
+    {
+       
+       // dd($);
+       $pc = DB::table('computer')->where('lab_id', $id)->get();
+        
+       return view('pc', compact('pc'));
+    }
 
 
     public function admincrud()
