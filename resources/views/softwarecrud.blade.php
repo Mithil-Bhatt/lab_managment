@@ -11,33 +11,35 @@
 <body>
 
 
-    <h1>lab data</h1>
-    <form action="/labdata" method="POST">
+    <h1>user data</h1>
+    <form action="/softwaredata" method="POST">
         @csrf
-        <input type="text" name="lab_no" placeholder="lab_no" value="{{ old('lab_no')}}">
-        @error('lab_no')
+        <input type="text" name="softwarename" placeholder="soft_warename" value="{{ old('roll_no')}}">
+        @error('roll_no')
         {{ $message }}
         @enderror
         <br>
-
+       
         <input type="submit" value="submit">
     </form>
     <br>
 
 
     @foreach($userdata as $user)
-    {{ $user->lab_id}} {{ $user->lab_no}}
+    {{ $user->id}} {{ $user->software_name}}
 
-    <a href="/labdata/{{$user->lab_id}}/labcrudedit">Edit</a><br>
-
-    <form action="/labdata/{{$user->lab_id}}" method="POST">
+    <a href="/softwaredata/{{$user->id}}/edit">Edit</a><br>
+    
+    <form action="softwaredata/{{$user->id}}" method="POST">
         @method('DELETE')
         @csrf
         <input type="submit" value="delete">
-    </form>
-    <br>
+     </form>
+     <br>
 
     @endforeach
+
+
 
 </body>
 

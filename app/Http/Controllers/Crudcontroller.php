@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Lab;
+use App\Models\software;
+use App\Models\hardware;
+use App\Models\computer;
 use Illuminate\Http\Request;
 
 class Crudcontroller extends Controller
@@ -100,4 +103,138 @@ class Crudcontroller extends Controller
 
         return view('labcrudedit', compact('user'));
     }
+
+
+    //computer 
+     
+    public function computercrud()
+    {
+
+        $userdata = computer::all();
+        return view('computercrud', compact('userdata'));
+    }
+
+    public function computerentry(Request $request)
+    {
+        computer::create([
+            'computer_no' => $request['computer_no'],
+            'lab_id' => $request['lab_id']            
+        ]);
+        return redirect('labdata');
+    }
+
+
+
+
+
+    //software
+
+    public function softwarecrud()
+    {
+
+        $userdata = software::all();
+        return view('softwarecrud', compact('userdata'));
+    }
+
+    public function softwareentry(Request $request)
+    {
+        software::create([
+            'software_name' => $request['softwarename']
+        ]);
+        return redirect('softwaredata');
+    }
+
+    
+    public function softwaredatadelete($id)
+    {
+        software::where('id', $id)->delete();
+        return redirect('softwaredata');
+    }
+
+
+    public function softwaredataedits($id)
+    {
+        $user = software::find($id);
+        // dd($student);
+
+        return view('softwarecrudedit', compact('user'));
+    }
+
+    public function softwareeditPage($id)
+    {
+        $student = software::find($id);
+        // dd($student);
+        return view('softwarecrudedit', compact('student'));
+    }
+
+    public function softwaredataedit(Request $request, $id)
+    {
+
+        software::where('id', $id)->update([
+            'software_name' => $request['software_name']
+        ]);
+
+        return redirect('softwaredata');
+    }
+
+
+
+
+
+
+    //hardware
+
+    
+    public function hardwarecrud()
+    {
+
+        $userdata = hardware::all();
+        return view('hardwarecrud', compact('userdata'));
+    }
+
+    public function hardwareeentry(Request $request)
+    {
+        hardware::create([
+            'hardware_name' => $request['hardware_name']
+        ]);
+        return redirect('hardwaredata');
+    }
+
+    
+    public function hardwaredatadelete($id)
+    {
+        hardware::where('id', $id)->delete();
+        return redirect('hardwaredata');
+    }
+
+
+    public function hardwaredataedits($id)
+    {
+        $user = hardware::find($id);
+        // dd($student);
+
+        return view('hardwarecrudedit', compact('user'));
+    }
+
+    public function hardwareeditPage($id)
+    {
+        $student = hardware::find($id);
+        // dd($student);
+        return view('hardwarecrudedit', compact('student'));
+    }
+
+    public function hardwaredataedit(Request $request, $id)
+    {
+
+        hardware::where('id', $id)->update([
+            'hardware_name' => $request['hardware_name']
+        ]);
+
+        return redirect('hardwaredata');
+    }
+
+
+
+
+
 }

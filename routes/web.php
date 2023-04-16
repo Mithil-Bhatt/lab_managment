@@ -52,9 +52,31 @@ Route::middleware('auth', 'isadmin')->group(function () {
     //lab
     Route::get('/labdata', [Crudcontroller::class, 'labcrud']);
     Route::post('/labdata', [Crudcontroller::class, 'labentry']);
-    Route::delete('/labdata/{ḷab_id}', [Crudcontroller::class, 'labdelete']);
-    Route::get('/labdata/{lab_id}/edit', [Crudcontroller::class, 'labedits']);
+    Route::delete('/labdata/{lab_id}', [Crudcontroller::class, 'labdelete']);
+    Route::get('/labdata/{lab_id}/labcrudedit', [Crudcontroller::class, 'labedits']);
 
+
+    //sofware
+    Route::get('/softwaredata', [Crudcontroller::class, 'softwarecrud']);
+    Route::post('/softwaredata', [Crudcontroller::class, 'softwareentry']);
+    Route::get('/softwaredata/{id}/edit', [Crudcontroller::class, 'softwaredataedits']);
+    Route::delete('/softwaredata/{id}', [Crudcontroller::class, 'softwaredatadelete']);
+    Route::put('/softwaredata/{id}', [Crudcontroller::class, 'softwaredataedit']);
+
+
+    //hardware
+    Route::get('/hardwaredata', [Crudcontroller::class, 'hardwarecrud']);
+    Route::post('/hardwaredata', [Crudcontroller::class, 'hardwareeentry']);
+    Route::get('/hardwaredata/{id}/edit', [Crudcontroller::class, 'hardwaredataedits']);
+    Route::delete('/hardwaredata/{id}', [Crudcontroller::class, 'hardwaredatadelete']);
+    Route::put('/hardwaredata/{id}', [Crudcontroller::class, 'hardwaredataedit']);
+
+
+    //computer
+    
+    //lab
+    Route::get('/computerdata', [Crudcontroller::class, 'computercrud']);
+    Route::post('/computerdata', [Crudcontroller::class, 'computerentry']);
 });
 
 /*Route::get('/display', [BasicController::class,'display']);
