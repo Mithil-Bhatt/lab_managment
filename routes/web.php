@@ -53,8 +53,8 @@ Route::middleware('auth', 'isadmin')->group(function () {
     Route::get('/labdata', [Crudcontroller::class, 'labcrud']);
     Route::post('/labdata', [Crudcontroller::class, 'labentry']);
     Route::delete('/labdata/{lab_id}', [Crudcontroller::class, 'labdelete']);
-    Route::get('/labdata/{lab_id}/labcrudedit', [Crudcontroller::class, 'labedits']);
-
+    Route::get('/labdata/{lab_id}/edit', [Crudcontroller::class, 'labedits']);
+    Route::put('/labdata/{lab_id}', [Crudcontroller::class, 'labdataedit']);
 
     //sofware
     Route::get('/softwaredata', [Crudcontroller::class, 'softwarecrud']);
@@ -73,10 +73,12 @@ Route::middleware('auth', 'isadmin')->group(function () {
 
 
     //computer
-    
-    //lab
     Route::get('/computerdata', [Crudcontroller::class, 'computercrud']);
     Route::post('/computerdata', [Crudcontroller::class, 'computerentry']);
+    Route::get('/computerdata/{computer_id}/edit', [Crudcontroller::class, 'computerdataedits']);
+    Route::delete('/computerdata/{computer_id}', [Crudcontroller::class, 'computerdatadelete']);
+    Route::put('/computerdata/{computer_id}', [Crudcontroller::class, 'computerdataedit']);
+
 });
 
 /*Route::get('/display', [BasicController::class,'display']);

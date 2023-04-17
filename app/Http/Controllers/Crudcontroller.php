@@ -98,11 +98,25 @@ class Crudcontroller extends Controller
 
     public function labedits($lab_id)
     {
-        $user = lab::find($lab_id);
-        // dd($student);
-
-        return view('labcrudedit', compact('user'));
+        //return $lab_id;
+        $user = lab::select("*")->where('lab_id',$lab_id)->first();
+         
+       return view('labcrudedit', compact('user'));
     }
+
+    
+    public function labdataedit(Request $request, $lab_id)
+    {
+
+        lab::where('lab_id', $lab_id)->update([
+            'lab_no' => $request['lab_no']
+        ]);
+
+        return redirect('labdata');
+    }
+
+
+
 
 
     //computer 
@@ -117,11 +131,44 @@ class Crudcontroller extends Controller
     public function computerentry(Request $request)
     {
         computer::create([
-            'computer_no' => $request['computer_no'],
+            'Computer_no' => $request['Computer_no'],
             'lab_id' => $request['lab_id']            
         ]);
-        return redirect('labdata');
+        return redirect('computerdata');
     }
+
+    
+    public function computerdatadelete($computer_id)
+    {
+        computer::where('computer_id', $computer_id)->delete();
+        return redirect('computerdata');
+    }
+
+
+    public function computerdataedits($computer_id)
+    {
+        //return $lab_id;
+        $user = computer::select("*")->where('computer_id',$computer_id)->first();
+         
+       return view('computercrudedit', compact('user'));
+    }
+
+    
+    public function computerdataedit(Request $request, $computer_id)
+    {
+
+        computer::where('computer_id', $computer_id)->update([
+            'Computer_no' => $request['Computer_no'],
+            'lab_id' => $request['lab_id']
+        ]);
+
+        return redirect('computerdata');
+    }
+
+
+
+
+
 
 
 

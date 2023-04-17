@@ -25,10 +25,10 @@
     <br>
 
 
-    @foreach($userdata as $user)
+    @foreach($userdata as $user)    
     {{ $user->lab_id}} {{ $user->lab_no}}
 
-    <a href="/labdata/{{$user->lab_id}}/labcrudedit">Edit</a><br>
+    <a href="/labdata/{{$user->lab_id}}/edit">Edit</a><br>
 
     <form action="/labdata/{{$user->lab_id}}" method="POST">
         @method('DELETE')
