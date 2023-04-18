@@ -164,5 +164,6 @@ class BasicController extends Controller
     {
         
         dd($request->all());
+        
     }
 }
