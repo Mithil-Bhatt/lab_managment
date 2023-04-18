@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/display', [BasicController::class, 'display'])->name('');
+    Route::post('/display', [BasicController::class, 'complainstore']);
     Route::get('/pc', [BasicController::class, 'pc']);
     Route::get('/pc/{computer_id}/display', [BasicController::class, 'pcfind']);
 

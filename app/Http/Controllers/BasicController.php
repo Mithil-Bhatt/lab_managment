@@ -66,11 +66,11 @@ class BasicController extends Controller
     }
 
 
-    
+
     public function lab()
     {
 
-         $labdata = lab::all();
+        $labdata = lab::all();
         return view('lab', compact('labdata'));
     }
 
@@ -84,30 +84,30 @@ class BasicController extends Controller
 
     public function pcfind($computer_id)
     {
-        $pc = DB::table('computer')->select('*')->where('Computer_id',$computer_id)->get();
+        $pc = DB::table('computer')->select('*')->where('Computer_id', $computer_id)->get();
         //$lab=DB::table('computer')->select('lab_id')->where('Computer_id',$computer_id);
         $data = Hardware::all();
         $data1 = Software::all();
-       // dd($pc,$data,$data1);
+        // dd($pc,$data,$data1);
         return view('display', compact('pc', 'data', 'data1'));
     }
-    
+
     public function pcselect($id)
     {
-       
-       // dd($);
-  
-       $pc = DB::table('computer')->where('lab_id', $id)->get();
 
-        
-       return view('pc', compact('pc'));
+        // dd($);
+
+        $pc = DB::table('computer')->where('lab_id', $id)->get();
+
+
+        return view('pc', compact('pc'));
     }
 
 
     public function admincrud()
     {
 
-         $userdata = user::all();
+        $userdata = user::all();
         return view('admincrud', compact('userdata'));
     }
 
@@ -122,41 +122,47 @@ class BasicController extends Controller
         return redirect('data');
     }
 
-    
-   public function datadelete($id)
-   {
-      user::where('id', $id)->delete();
-      return redirect('data');
-   }
 
-   
-   public function dataedits($id)
-   {
-      $user = user::find($id);
-      // dd($student);
-
-      return view('userEdit', compact('user'));
-   }
-
-   public function editPage($id)
-   {
-    $student = user::find($id);
-    // dd($student);
-    return view('useredit', compact('student'));
-    }
-
-    public function dataedit( Request $request,$id)
+    public function datadelete($id)
     {
-       
-       user::where('id',$id)->update([
-          'username' => $request['username'],
-          'name' => $request['name'],
-          'email' => $request['email'],
-          'password' => $request['password']
-       ]);
- 
-       return redirect('data');
+        user::where('id', $id)->delete();
+        return redirect('data');
     }
 
-}
 
+    public function dataedits($id)
+    {
+        $user = user::find($id);
+        // dd($student);
+
+        return view('userEdit', compact('user'));
+    }
+
+    public function editPage($id)
+    {
+        $student = user::find($id);
+        // dd($student);
+        return view('useredit', compact('student'));
+    }
+
+    public function dataedit(Request $request, $id)
+    {
+
+        user::where('id', $id)->update([
+            'username' => $request['username'],
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => $request['password']
+        ]);
+
+        return redirect('data');
+    }
+
+
+
+    public function complainstore(Request $request)
+    {
+        
+        dd($request->all());
+    }
+}
