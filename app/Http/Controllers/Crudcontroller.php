@@ -7,7 +7,9 @@ use App\Models\Lab;
 use App\Models\software;
 use App\Models\hardware;
 use App\Models\computer;
+use App\Models\complain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Crudcontroller extends Controller
 {
@@ -282,6 +284,27 @@ class Crudcontroller extends Controller
 
 
 
+
+
+    //complain view
+
+    public function complainview()
+    {
+
+        $complains = DB::table('complain')
+                    ->select('complain.*', 'computer.Computer_no', 'lab.lab_no', 'hardware.hardware_name', 'software.software_name')
+                    ->join('computer', 'complain.computer_id', '=', 'computer.computer_id')
+                    ->join('lab', 'complain.lab_id', '=', 'lab.lab_id')
+                    ->join('hardware', 'complain.hardware_id', '=', 'hardware.id')
+                    ->join('software', 'complain.software_id', '=', 'software.id')
+                    ->get();
+
+    
+
+
+        return view('complainview', compact('complains'));
+        
+    }
 
 
 }

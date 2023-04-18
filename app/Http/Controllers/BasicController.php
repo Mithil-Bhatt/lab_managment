@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\complain;    
 
 
 class BasicController extends Controller
@@ -85,6 +86,7 @@ class BasicController extends Controller
     public function pcfind($computer_id)
     {
         $pc = DB::table('computer')->select('*')->where('Computer_id', $computer_id)->get();
+        
         //$lab=DB::table('computer')->select('lab_id')->where('Computer_id',$computer_id);
         $data = Hardware::all();
         $data1 = Software::all();
@@ -163,7 +165,13 @@ class BasicController extends Controller
     public function complainstore(Request $request)
     {
         
-        dd($request->all());
-        
+        //dd($request->all());
+        complain::create([
+            'lab_id' => $request['lab_id'],
+            'computer_id' => $request['computer_id'],
+            'software_id' => $request['software_name'],
+            'hardware_id' => $request['hardware_name'],
+            'feedback' => $request['feedback']
+        ]);
     }
 }

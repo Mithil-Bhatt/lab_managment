@@ -80,6 +80,10 @@ Route::middleware('auth', 'isadmin')->group(function () {
     Route::delete('/computerdata/{computer_id}', [Crudcontroller::class, 'computerdatadelete']);
     Route::put('/computerdata/{computer_id}', [Crudcontroller::class, 'computerdataedit']);
 
+
+    //comlain view
+    Route::get('/complainview', [Crudcontroller::class, 'complainview']);
+
 });
 
 /*Route::get('/display', [BasicController::class,'display']);

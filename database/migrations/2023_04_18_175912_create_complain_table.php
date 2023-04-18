@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('software_id')->references('id')->on('software');
             $table->unsignedBigInteger('hardware_id');
             $table->foreign('hardware_id')->references('id')->on('hardware');
+            $table->string('feedback');
             $table->timestamps();
         });
     }

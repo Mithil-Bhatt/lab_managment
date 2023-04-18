@@ -8,6 +8,7 @@
         @csrf
 
         <input type="hidden" name="computer_id" value="{{ $pc->first()->computer_id }}">
+        <input type="hidden" name="lab_id" value="{{ $pc->first()->lab_id }}">
 
 
         <h1>
