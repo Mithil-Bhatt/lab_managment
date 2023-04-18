@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/display', [BasicController::class, 'display'])->name('');
     Route::get('/pc', [BasicController::class, 'pc']);
-    Route::get('/pc/{id}/display', [BasicController::class, 'pcfind']);
+    Route::get('/pc/{computer_id}/display', [BasicController::class, 'pcfind']);
 
     Route::get('/lab', [BasicController::class, 'lab']);
     Route::get('/lab/{id}/pc', [BasicController::class, 'pcselect']);

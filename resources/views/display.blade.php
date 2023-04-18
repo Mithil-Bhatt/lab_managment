@@ -6,17 +6,22 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+   <form action="/display" method="POST">
+@csrf
 
-<form action="/pc/{{$pc->id}}" method="POST">
-    @csrf
-    @method('PUT')
-	<h1>{{ $pc->Computer_no}}</h1>
-</form>
+<h1 name="computer_id">
+@foreach($pc as $row)
+	Computer:id  {{ $row->computer_id}}
+      Computer:no     {{$row->Computer_no}} <br>
+      lab:id {{$row->lab_id}}<br><br>
+    @endforeach
+    </h1>
+
 
     
 
 <label class="control-label" for="inputEmail">Hardware Name</label>
-<select name="dev_id" class="chzn-select" >
+<select name="hardware_name" class="chzn-select" >
 				                                @foreach( $data as $row )
 			                                    
 				                                    <option value="{{ $row->id }}">{{ $row->hardware_name }}</option>
@@ -25,11 +30,18 @@
 
 
 <label class="control-label" for="inputEmail">Software Name</label>
-<select name="dev_id" class="chzn-select" >
+<select name="software_name" class="chzn-select" >
 				                                @foreach( $data1 as $row )
 			                                    
 				                                    <option value="{{ $row->id }}">{{ $row->software_name }}</option>
                                                 @endforeach        
-				                                </select>												
+				                                </select>	<br><br>	<br>
+                                                
+   <h1>Feedback <textarea name="feedback">  </textarea>    <br>      <br><br>                                   
 
-												</x-app-layout>
+                                                <x-primary-button class="ml-3">
+                {{ __('Submit') }}
+            </x-primary-button>
+</form>
+
+												</x-app-layout>s

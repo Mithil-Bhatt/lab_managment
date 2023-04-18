@@ -82,13 +82,16 @@ class BasicController extends Controller
         return view('pc', compact('pc'));
     }
 
-    public function pcfind($id)
+    public function pcfind($computer_id)
     {
-        $pc = Computer::find($id);
+        $pc = DB::table('computer')->select('*')->where('Computer_id',$computer_id)->get();
+        //$lab=DB::table('computer')->select('lab_id')->where('Computer_id',$computer_id);
         $data = Hardware::all();
         $data1 = Software::all();
+       // dd($pc,$data,$data1);
         return view('display', compact('pc', 'data', 'data1'));
     }
+    
     public function pcselect($id)
     {
        

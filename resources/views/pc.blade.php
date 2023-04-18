@@ -556,7 +556,7 @@
                     {{ $row->Computer_no }}
 
                     <br><br>
-                    <a href="/pc"><button class="button-28" role="button">Enter</button></a>
+                    <a href="/pc/{{$row->computer_id}}/display"><button class="button-28" role="button">Enter</button></a>
                   </div>
                 </div>
               </div>
