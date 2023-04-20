@@ -174,4 +174,13 @@ class BasicController extends Controller
             'feedback' => $request['feedback']
         ]);
     }
+
+
+    public function adminpage()
+    {
+
+        
+        return view('adminpage');
+    }
+
 }
