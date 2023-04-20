@@ -307,4 +307,11 @@ class Crudcontroller extends Controller
     }
 
 
+      public function adminmain()
+      {
+        return view('admin');
+      }
+
+
+
 }

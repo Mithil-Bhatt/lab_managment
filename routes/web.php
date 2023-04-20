@@ -37,9 +37,26 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/lab', [BasicController::class, 'lab']);
     Route::get('/lab/{id}/pc', [BasicController::class, 'pcselect']);
+
+//excel file
+Route::get('/display', [BasicController::class, 'exportToExcel']);
+
+Route::get('/admin', [BasicController::class, 'adminpage']);
+
+
 });
 
+
+
+
+
+
+
+
+
 Route::middleware('auth', 'isadmin')->group(function () {
+
+    Route::get('/admin', [Crudcontroller::class, 'adminmain']);
 
     //admin
 
