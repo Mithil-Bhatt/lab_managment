@@ -56,8 +56,7 @@ Route::get('/admin', [BasicController::class, 'adminpage']);
 
 Route::middleware('auth', 'isadmin')->group(function () {
 
-    Route::get('/admin', [Crudcontroller::class, 'adminmain']);
-
+   
     //admin
     Route::get('/admin', [BasicController::class, 'adminpage']);
 

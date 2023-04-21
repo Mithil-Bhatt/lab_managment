@@ -179,12 +179,7 @@ class BasicController extends Controller
     }
 
 
-    public function adminpage()
-    {
-
-        
-        return view('admin');
-    }
+    
 
     public function exportToExcel()
     {
