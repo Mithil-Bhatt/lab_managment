@@ -13,6 +13,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\complain;    
+use App\Exports\complainExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class BasicController extends Controller
@@ -171,7 +173,8 @@ class BasicController extends Controller
             'computer_id' => $request['computer_id'],
             'software_id' => $request['software_name'],
             'hardware_id' => $request['hardware_name'],
-            'feedback' => $request['feedback']
+            'feedback' => $request['feedback'],
+            'image' =>$request['image']
         ]);
     }
 
@@ -182,5 +185,17 @@ class BasicController extends Controller
         
         return view('admin');
     }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new complainExport, 'table_data.xlsx');
+    }
+
+    public function adminpage()
+    {
+      return view('adminpage');
+    }
+
+
 
 }

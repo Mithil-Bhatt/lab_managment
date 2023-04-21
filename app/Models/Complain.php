@@ -9,5 +9,5 @@ class Complain extends Model
 {
     use HasFactory;
     protected $table ='complain';
-    protected $fillable = ['lab_id','computer_id','software_id','hardware_id','feedback'];
+    protected $fillable = ['lab_id','computer_id','software_id','hardware_id','feedback','image'];
 }

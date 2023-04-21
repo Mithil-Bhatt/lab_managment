@@ -17,11 +17,12 @@ return new class extends Migration
             $table->foreign('lab_id')->references('lab_id')->on('lab');
             $table->unsignedBigInteger('computer_id');
             $table->foreign('computer_id')->references('computer_id')->on('computer');
-            $table->unsignedBigInteger('software_id');
+            $table->unsignedBigInteger('software_id')->nullable();
             $table->foreign('software_id')->references('id')->on('software');
-            $table->unsignedBigInteger('hardware_id');
+            $table->unsignedBigInteger('hardware_id')->nullable();
             $table->foreign('hardware_id')->references('id')->on('hardware');
             $table->string('feedback');
+            $table->binary('image')->nullable();
             $table->timestamps();
         });
     }
