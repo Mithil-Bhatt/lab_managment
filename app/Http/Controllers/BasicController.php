@@ -180,7 +180,7 @@ class BasicController extends Controller
     {
 
         
-        return view('adminpage');
+        return view('admin');
     }
 
 }
