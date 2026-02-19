@@ -1,32 +1,49 @@
-# 🧪 Lab Management System (Laravel)
+# 💻 Computer Lab Management System (Laravel)
 
-A complete Lab Management System built using **Laravel**.  
-This application helps manage laboratories, patients, reports, appointments, and administrative operations efficiently.
+A Computer Lab Management System built with **Laravel** to efficiently manage lab computers, users, bookings, and lab activities.
+
+This system helps educational institutions manage computer lab resources, monitor usage, and streamline lab operations.
 
 ---
 
 ## 🚀 Features
 
-- 🔐 Authentication (Login / Register)
-- 👤 Role-Based Access (Admin, Staff, Patient)
-- 🧑‍🔬 Lab Staff Management
-- 🧾 Test & Report Management
-- 📅 Appointment Booking System
-- 📊 Admin Dashboard with Analytics
+- 🔐 User Authentication (Admin / Staff / Student)
+- 👨‍💻 Computer System Management
+- 🏫 Lab Room Management
+- 📅 Lab Booking & Scheduling
+- 📝 Usage Tracking
+- 📊 Admin Dashboard
 - 🗑 Soft Delete Support
-- 📁 File Uploads (Reports / Documents)
-- 🔎 Search & Filtering
-- 🔒 Secure API with Laravel Sanctum (if applicable)
+- 🔎 Search & Filter Systems
+- 🔒 Role-Based Access Control
 
 ---
 
-## 🛠 Built With
+## 👥 User Roles
 
-- **Framework:** Laravel 12+
+- **Admin**
+  - Manage labs, systems, and users
+  - View reports and usage logs
+  - Full system control
+
+- **Staff**
+  - Manage lab sessions
+  - Approve bookings
+  - Monitor system usage
+
+- **Student/User**
+  - Book lab sessions
+  - View booking history
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework:** Laravel
 - **PHP:** 8.2+
 - **Database:** MySQL
 - **Frontend:** Blade / Bootstrap
-- **Authentication:** Laravel Built-in Auth / Sanctum
 - **Server:** Apache / Nginx
 
 ---
